@@ -1,4 +1,4 @@
-package br.com.ic.inventarioitem.controller.view;
+package br.com.ic.inventarioitem.controllers.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
