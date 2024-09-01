@@ -12,17 +12,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping()
+@RequestMapping("/login")
 public class AutorizacaoController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/login")
+    @GetMapping("")
     public String login() {
         return "login";
     }
 
-    @PostMapping("/login")
+    @PostMapping("")
     public ResponseEntity loginEmailSenha(@RequestBody AutenticacaoEmailSenhaDTO request) {
 
         var autenticacaoToken = new UsernamePasswordAuthenticationToken(request.email(), request.senha());
