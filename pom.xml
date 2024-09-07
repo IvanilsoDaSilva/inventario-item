@@ -62,12 +62,19 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Spring Boot Starter Security: Fornece suporte para autenticação e autorização com Spring Security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>3.3.1</version>
 		</dependency>
 
+		<!-- Jackson Databind: Biblioteca para conversão entre objetos Java e JSON -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.15.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
