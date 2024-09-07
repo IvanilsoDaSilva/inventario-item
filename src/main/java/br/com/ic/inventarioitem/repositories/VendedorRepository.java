@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface VendedorRepository extends JpaRepository<Vendedor, String> {
+    Vendedor findByRazaoSocial(String razaoSocial);
 }
