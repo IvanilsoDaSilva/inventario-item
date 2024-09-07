@@ -1,7 +1,6 @@
-package br.com.ic.inventarioitem.entities.database;
+package br.com.ic.inventarioitem.entities.base;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -12,7 +11,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.io.Serializable;
 import java.util.Date;
 
+// Persistencia
 @MappedSuperclass
+// Lombok
 @Data
 @SuperBuilder
 @NoArgsConstructor

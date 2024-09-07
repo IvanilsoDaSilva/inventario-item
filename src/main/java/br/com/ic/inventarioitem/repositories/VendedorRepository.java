@@ -1,6 +1,6 @@
 package br.com.ic.inventarioitem.repositories;
 
-import br.com.ic.inventarioitem.entities.business.Vendedor;
+import br.com.ic.inventarioitem.entities.core.Vendedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

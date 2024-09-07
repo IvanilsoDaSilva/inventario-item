@@ -1,6 +1,6 @@
-package br.com.ic.inventarioitem.entities.business;
+package br.com.ic.inventarioitem.entities.core;
 
-import br.com.ic.inventarioitem.entities.abstracts.PessoaFisica;
+import br.com.ic.inventarioitem.entities.inheritance.PessoaFisica;
 import br.com.ic.inventarioitem.enums.PapeisUsuario;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -13,15 +13,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
 
+// Persistencia
 @Entity
 @Table(name = "usuario")
+//@DiscriminatorValue("USUARIO")
+// Lombok
 @Data
 @SuperBuilder
 @NoArgsConstructor
 public class Usuario extends PessoaFisica implements UserDetails {
-    @Column(name = "email", length = 100, unique = true)
-    private String email;
-
     @Column(name = "senha", length = 100)
     private String senha;
 

@@ -1,6 +1,6 @@
 package br.com.ic.inventarioitem.repositories;
 
-import br.com.ic.inventarioitem.entities.business.Usuario;
+import br.com.ic.inventarioitem.entities.core.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
