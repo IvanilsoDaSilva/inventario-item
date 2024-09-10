@@ -1,6 +1,6 @@
 package br.com.ic.inventarioitem.runners;
 
-import br.com.ic.inventarioitem.entities.business.Usuario;
+import br.com.ic.inventarioitem.entities.core.Usuario;
 import br.com.ic.inventarioitem.enums.PapeisUsuario;
 import br.com.ic.inventarioitem.repositories.UsuarioRepository;
 import lombok.AllArgsConstructor;

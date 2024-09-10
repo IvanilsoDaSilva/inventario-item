@@ -1,6 +1,6 @@
-package br.com.ic.inventarioitem.entities.business;
+package br.com.ic.inventarioitem.entities.core;
 
-import br.com.ic.inventarioitem.entities.abstracts.PessoaFisica;
+import br.com.ic.inventarioitem.entities.inheritance.PessoaFisica;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,15 +8,15 @@ import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 
+// PErsistencia
 @Entity
 @Table(name = "proprietario")
+//@DiscriminatorValue("PROPRIETARIO")
+// Lombok
 @Data
 @SuperBuilder
 @NoArgsConstructor
 public class Proprietario extends PessoaFisica {
-    @Column(name = "email", length = 100, unique = true)
-    private String email;
-
     @Column(name = "telefone", length = 20)
     private String telefone;
 
