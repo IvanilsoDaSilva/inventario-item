@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.util.List;
+
 // Persistencia
 @Entity
 @Table(name = "fornecedor")
@@ -15,4 +17,6 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class Fornecedor extends PessoaJuridica {
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL)
+    protected List<Item> items;
 }

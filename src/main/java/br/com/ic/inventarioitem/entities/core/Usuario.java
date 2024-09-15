@@ -3,6 +3,7 @@ package br.com.ic.inventarioitem.entities.core;
 import br.com.ic.inventarioitem.entities.inheritance.PessoaFisica;
 import br.com.ic.inventarioitem.enums.PapeisUsuario;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -22,7 +23,8 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class Usuario extends PessoaFisica implements UserDetails {
-    @Column(name = "senha", length = 100)
+    @Size(max = 255, message = "A senha não pode possuir mais de 255 caracteres")
+    @Column(name = "senha", length = 255)
     private String senha;
 
     @Column(name = "papel")

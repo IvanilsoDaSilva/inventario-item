@@ -22,7 +22,6 @@ public class BancoDadosRunner implements ApplicationRunner {
     public void run(ApplicationArguments args) {
         usuarioRepository.save(Usuario.builder()
                         .nome("Administrador")
-                        .cpf("0000000000")
                         .email("administrador@domain")
                         .senha(passwordEncoder.encode("12345678"))
                         .papel(PapeisUsuario.USUARIO_ADMINISTRADOR)

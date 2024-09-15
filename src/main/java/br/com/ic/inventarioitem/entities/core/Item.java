@@ -2,6 +2,8 @@ package br.com.ic.inventarioitem.entities.core;
 
 import br.com.ic.inventarioitem.entities.base.PersistenciaBD;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -14,16 +16,22 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public class Item extends PersistenciaBD {
-    @Column(name = "codigo", length = 100)
+    @NotBlank(message = "O código do item é obrigatório")
+    @Size(max = 255, message = "O código do item não pode possuir mais de 255 caracteres")
+    @Column(name = "codigo", length = 255)
     private String codigo;
 
-    @Column(name = "nome", length = 100)
+    @NotBlank(message = "O nome do item é obrigatório")
+    @Size(max = 255, message = "O nome do item não pode possuir mais de 255 caracteres")
+    @Column(name = "nome", length = 255)
     private String nome;
 
+    @Size(max = 255, message = "A descrição do item não pode possuir mais de 255 caracteres")
     @Column(name = "descricao")
     private String descricao;
 
-    @Column(name = "categoria", length = 100)
+    @Size(max = 255, message = "A categoria do item não pode possuir mais de 255 caracteres")
+    @Column(name = "categoria", length = 255)
     private String categoria;
 
     @Column(name = "anexo", length = 100)

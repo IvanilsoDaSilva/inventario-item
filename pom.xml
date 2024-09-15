@@ -75,6 +75,12 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.15.1</version>
 		</dependency>
+
+		<!-- Spring Boot Starter Validation: Biblioteca para suporte a validação de Bean e integração com Hibernate Validator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -2,9 +2,13 @@ package br.com.ic.inventarioitem.entities.inheritance;
 
 import br.com.ic.inventarioitem.entities.base.PersistenciaBD;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.validator.constraints.br.CPF;
 
 // Persistencia
 @Entity
@@ -16,12 +20,18 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 public abstract class PessoaFisica extends PersistenciaBD {
-    @Column(name = "nome", length = 100)
+    @NotBlank(message = "O nome é obrigatório")
+    @Size(max = 255, message = "O nome não pode possuir mais de 255 caracteres")
+    @Column(name = "nome", length = 255)
     private String nome;
 
-    @Column(name = "cpf", length = 11, unique = true)
+    @CPF
+    @Column(name = "cpf", length = 14, unique = true)
     private String cpf;
 
-    @Column(name = "email", length = 100, unique = true)
+    @NotBlank(message = "O E-Mail é obrigatório")
+    @Size(max = 255, message = "O E-Mail não pode possuir mais de 255 caracteres")
+    @Email
+    @Column(name = "email", length = 255, unique = true)
     private String email;
 }
