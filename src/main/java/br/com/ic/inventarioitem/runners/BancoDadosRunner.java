@@ -15,16 +15,27 @@ import org.springframework.stereotype.Component;
 @Component
 @AllArgsConstructor(onConstructor = @__({@Autowired}))
 public class BancoDadosRunner implements ApplicationRunner {
-    private final UsuarioRepository usuarioRepository;
-    PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    @Autowired
+    private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public void run(ApplicationArguments args) {
         usuarioRepository.save(Usuario.builder()
-                        .nome("Administrador")
-                        .email("administrador@domain")
-                        .senha(passwordEncoder.encode("12345678"))
-                        .papel(PapeisUsuario.USUARIO_ADMINISTRADOR)
-                        .build());
+                .nome("Administrador")
+                .email("administrador@domain.com")
+//                .cpf("433.542.978-01") // Devido a validação, apenas aceita cpfs corretos ou nulos
+                .senha(passwordEncoder.encode("12345678"))
+                .papel(PapeisUsuario.ADMINISTRADOR)
+                .build());
+        usuarioRepository.save(Usuario.builder()
+                .nome("Usuario")
+                .email("usuario@domain.com")
+//                .cpf("433.542.978-01") // Devido a validação, apenas aceita cpfs corretos ou nulos
+                .senha(passwordEncoder.encode("12345678"))
+                .papel(PapeisUsuario.USUARIO)
+                .build());
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
-    UserDetails findByEmail(String email);
+    Usuario findByEmail(String email);
 
     @Query(value = "SELECT * FROM usuario WHERE cpf = :cpf", nativeQuery = true)
     Usuario findByCpf(String cpf);

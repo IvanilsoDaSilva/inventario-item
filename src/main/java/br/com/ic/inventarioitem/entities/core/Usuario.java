@@ -32,15 +32,17 @@ public class Usuario extends PessoaFisica implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        if (this.papel == PapeisUsuario.USUARIO_ADMINISTRADOR)
+        if (this.papel == PapeisUsuario.ADMINISTRADOR) {
             return List.of(
-                    new SimpleGrantedAuthority("administrador"),
-                    new SimpleGrantedAuthority("operador")
+                    new SimpleGrantedAuthority("ROLE_ADMIN"),
+                    new SimpleGrantedAuthority("ROLE_USER")
             );
-        else
+        } else if (this.papel == PapeisUsuario.USUARIO) {
             return List.of(
-                    new SimpleGrantedAuthority("USUARIO_COMUM")
+                    new SimpleGrantedAuthority("ROLE_USER")
             );
+        }
+        return null;
     }
 
     @Override

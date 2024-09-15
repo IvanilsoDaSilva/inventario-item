@@ -30,6 +30,7 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
 		<!-- Suporte ao JPA e Hibernate para manipulação de dados com ORM. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -69,6 +70,13 @@
 			<version>3.3.1</version>
 		</dependency>
 
+		<!-- Spring Security Test: Fornece suporte para testes de segurança com Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- Jackson Databind: Biblioteca para conversão entre objetos Java e JSON -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -81,6 +89,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+
+		<!-- Spring Boot Starter Test: Biblioteca para suporte a testes unitários e integração com ferramentas de teste como JUnit e Mockito -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

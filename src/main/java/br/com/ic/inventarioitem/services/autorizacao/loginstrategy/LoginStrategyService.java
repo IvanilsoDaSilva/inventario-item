@@ -4,5 +4,5 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.security.core.Authentication;
 
 public interface LoginStrategyService {
-    Authentication login(String request) throws JsonProcessingException;
+    Authentication login(String request);
 }

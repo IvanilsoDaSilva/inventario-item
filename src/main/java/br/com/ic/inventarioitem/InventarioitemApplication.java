@@ -9,3 +9,4 @@ public class InventarioitemApplication {
 		SpringApplication.run(InventarioitemApplication.class, args);
 	}
 }
+

@@ -1,13 +1,10 @@
 package br.com.ic.inventarioitem.services.autorizacao;
 
-import br.com.ic.inventarioitem.dto.AutenticacaoEmailSenhaDTO;
+import br.com.ic.inventarioitem.entities.core.Usuario;
 import br.com.ic.inventarioitem.repositories.UsuarioRepository;
 import br.com.ic.inventarioitem.services.autorizacao.loginstrategy.LoginStrategyService;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,7 +18,11 @@ public class AutorizacaoService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        return usuarioRepository.findByEmail(email);
+        Usuario usuario = usuarioRepository.findByEmail(email);
+        if (usuario == null) {
+            throw new UsernameNotFoundException("Usuário não encontrado");
+        }
+        return usuario;
     }
 
     /**
@@ -44,7 +45,7 @@ public class AutorizacaoService implements UserDetailsService {
      * @return Um objeto `Authentication` que representa o resultado da autenticação.
      * @throws JsonProcessingException Se ocorrer um erro ao processar a string JSON da solicitação.
      */
-    public Authentication login(String request, LoginStrategyService loginStrategy) throws JsonProcessingException {
+    public Authentication login(String request, LoginStrategyService loginStrategy) {
         return loginStrategy.login(request);
     }
 }

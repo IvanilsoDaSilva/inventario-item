@@ -15,9 +15,13 @@ public class LoginEmailSenhaService implements LoginStrategyService {
     private ObjectMapper objectMapper; // Para converter JSON para objeto
 
     @Override
-    public Authentication login(String request) throws JsonProcessingException {
-        AutenticacaoEmailSenhaDTO autenticacaoEmailSenhaDTO =
-                objectMapper.readValue(request, AutenticacaoEmailSenhaDTO.class);
+    public Authentication login(String request) {
+        AutenticacaoEmailSenhaDTO autenticacaoEmailSenhaDTO = null;
+        try {
+            autenticacaoEmailSenhaDTO = objectMapper.readValue(request, AutenticacaoEmailSenhaDTO.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Erro para converter a requisição");
+        }
         var autenticacaoToken = new UsernamePasswordAuthenticationToken(
                 autenticacaoEmailSenhaDTO.email(), autenticacaoEmailSenhaDTO.senha());
         return authenticationManager.authenticate(autenticacaoToken);

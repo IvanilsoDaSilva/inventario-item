@@ -1,8 +1,8 @@
 package br.com.ic.inventarioitem.enums;
 
 public enum PapeisUsuario {
-    USUARIO_ADMINISTRADOR("administrador"),
-    USUARIO_OPERADOR("operador");
+    ADMINISTRADOR("administrador"),
+    USUARIO("usuario");
 
     String papel;
 
