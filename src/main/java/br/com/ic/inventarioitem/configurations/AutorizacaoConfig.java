@@ -38,8 +38,11 @@ public class AutorizacaoConfig {
                         .permitAll()
                 )
                 .logout(logout -> logout
+                        .logoutUrl("/logout") // Define o endpoint de logout
+                        .logoutSuccessUrl("/login") // URL para onde redirecionar após o logout
                         .permitAll()
                 );
+
 
         return http.build();
     }

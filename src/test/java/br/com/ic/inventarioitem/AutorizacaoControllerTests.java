@@ -123,14 +123,10 @@ class AutorizacaoControllerTests {
 		when(usuarioRepository.findByEmail("ivanilso.silva@domain.com")).thenReturn(mockUsuario);
 
 		this.mockMvc.perform(post("/login")
-							.header(HttpHeaders.CONTENT_TYPE, "application/json; charset=UTF-8")
+							.header(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded; charset=UTF-8")
 							.header(HttpHeaders.ACCEPT, "application/json")
-							.content("""
-								{
-									"username": "administrador@domain.com",
-									"password": "12345678"
-								}
-							""")
+							.param("username", "ivanilso.silva@domain.com")
+							.param("password", "12345678")
 						)
 				.andDo(print())
 				.andExpect(status().is3xxRedirection())
@@ -152,17 +148,26 @@ class AutorizacaoControllerTests {
 
 		// Realiza o POST no endpoint de login
 		this.mockMvc.perform(post("/login")
-						.header(HttpHeaders.CONTENT_TYPE, "application/json; charset=UTF-8")
+						.header(HttpHeaders.CONTENT_TYPE, "application/x-www-form-urlencoded; charset=UTF-8")
 						.header(HttpHeaders.ACCEPT, "application/json")
-						.content("""
-                			{
-                    			"username": "ivanilso.silva@domain.com",
-                    			"password": "1234567"
-                			}
-            			""")
+						.param("username", "ivanilso.silva@domain.com")
+						.param("password", "1234567")
 				)
 				.andDo(print())
 				.andExpect(status().is3xxRedirection())
 				.andExpect(header().string(HttpHeaders.LOCATION, "/login?error"));
 	}
+
+	@Test
+	void fazerLogout() throws Exception {
+		this.mockMvc.perform(get("/logout")
+						.header(HttpHeaders.CONTENT_TYPE, "application/json; charset=UTF-8")
+//						.header(HttpHeaders.ACCEPT, "application/json")
+						.with(user("Ivanilso").authorities(new SimpleGrantedAuthority("ROLE_USER")))
+//						.content("") // Sem corpo de requisicao
+				)
+				.andDo(print())
+				.andExpect(status().isNoContent());
+	}
+
 }
