@@ -4,6 +4,7 @@ import br.com.ic.inventarioitem.entities.inheritance.PessoaJuridica;
 import br.com.ic.inventarioitem.enums.TipoLoja;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Table(name = "vendedor")
 //@DiscriminatorValue("VENDEDOR")
 // Lombok
+@EqualsAndHashCode(callSuper=true)
 @Data
 @SuperBuilder
 @NoArgsConstructor

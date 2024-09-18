@@ -1,17 +1,20 @@
 package br.com.ic.inventarioitem.entities.core;
 
 import br.com.ic.inventarioitem.entities.base.PersistenciaBD;
+import br.com.ic.inventarioitem.enums.CategoriaItem;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 // Persistencia
 @Entity
 @Table(name = "item")
-// PErsistencia
+// Persistencia
+@EqualsAndHashCode(callSuper=true)
 @Data
 @SuperBuilder
 @NoArgsConstructor
@@ -32,7 +35,7 @@ public class Item extends PersistenciaBD {
 
     @Size(max = 255, message = "A categoria do item não pode possuir mais de 255 caracteres")
     @Column(name = "categoria", length = 255)
-    private String categoria;
+    private CategoriaItem categoria;
 
     @Column(name = "anexo", length = 100)
     private String anexo;

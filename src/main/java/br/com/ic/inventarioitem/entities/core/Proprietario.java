@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -15,6 +16,7 @@ import java.util.List;
 @Table(name = "proprietario")
 //@DiscriminatorValue("PROPRIETARIO")
 // Lombok
+@EqualsAndHashCode(callSuper=true)
 @Data
 @SuperBuilder
 @NoArgsConstructor

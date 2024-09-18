@@ -1,13 +1,13 @@
 package br.com.ic.inventarioitem.entities.inheritance;
 
 import br.com.ic.inventarioitem.entities.base.PersistenciaBD;
-import br.com.ic.inventarioitem.entities.core.Item;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.br.CNPJ;
@@ -16,10 +16,9 @@ import java.util.List;
 
 // Persistencia
 @Entity
-//@Table(name = "pessoa_juridica")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-//@DiscriminatorColumn(name = "tipo_pessoa_juridica")
 // Lombok
+@EqualsAndHashCode(callSuper=true)
 @Data
 @SuperBuilder
 @NoArgsConstructor

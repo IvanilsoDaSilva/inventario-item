@@ -9,6 +9,8 @@ import java.util.List;
 
 @Repository
 public interface ItemRepository extends JpaRepository<Item, String> {
+    Item findByNome(String nome);
+
     @Query(value = "SELECT * FROM item WHERE id_fabricante = :fabricanteId", nativeQuery = true)
     List<Item> findByFabricanteId(String fabricanteId);
 

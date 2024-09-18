@@ -1,25 +1,16 @@
-package br.com.ic.inventarioitem.entities.inheritance;
+package br.com.ic.inventarioitem.dto;
 
-import br.com.ic.inventarioitem.entities.base.PersistenciaBD;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.constraints.br.CPF;
 
-// Persistencia
-@Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-// Lombok
-@EqualsAndHashCode(callSuper=true)
 @Data
 @SuperBuilder
-@NoArgsConstructor
-public abstract class PessoaFisica extends PersistenciaBD {
+public class UsuarioCriarDTO {
     @NotBlank(message = "O nome é obrigatório")
     @Size(max = 255, message = "O nome não pode possuir mais de 255 caracteres")
     @Column(name = "nome", length = 255)
@@ -34,4 +25,9 @@ public abstract class PessoaFisica extends PersistenciaBD {
     @Email
     @Column(name = "email", length = 255, unique = true)
     private String email;
+
+    @NotBlank(message = "A senha é obrigatório")
+    @Size(max = 255, message = "A senha não pode possuir mais de 255 caracteres")
+    @Column(name = "senha", length = 255)
+    private String senha;
 }
