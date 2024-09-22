@@ -30,6 +30,7 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
 		<!-- Suporte ao JPA e Hibernate para manipulação de dados com ORM. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,11 +64,17 @@
 		</dependency>
 
 		<!-- Spring Boot Starter Security: Fornece suporte para autenticação e autorização com Spring Security -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-			<version>3.3.1</version>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+<!--		</dependency>-->
+
+		<!-- Spring Security Test: Fornece suporte para testes de segurança com Spring Security -->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.security</groupId>-->
+<!--			<artifactId>spring-securitysecurity-test</artifactId>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
 
 		<!-- Jackson Databind: Biblioteca para conversão entre objetos Java e JSON -->
 		<dependency>
@@ -75,6 +82,27 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.15.1</version>
 		</dependency>
+
+		<!-- Spring Boot Starter Validation: Biblioteca para suporte a validação de Bean e integração com Hibernate Validator -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+		</dependency>
+
+		<!-- Spring Boot Starter Test: Biblioteca para suporte a testes unitários e integração com ferramentas de teste como JUnit e Mockito -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- ModelMapper: Biblioteca para facilitar o mapeamento entre diferentes tipos de objetos, como entidades e DTOs, reduzindo a complexidade e o código boilerplate -->
+		<dependency>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>3.1.1</version> <!-- Substitua pela versão desejada -->
+		</dependency>
+
 	</dependencies>
 
 	<build>
