@@ -19,7 +19,8 @@ public class ItemController {
     @Operation(summary = "Cria um item")
     @ApiResponses(value={ 
       @ApiResponse(
-    		  responseCode = "201", description = "Item criado",
+    		  responseCode = "201",
+              description = "Item criado",
     		  content = { @Content(mediaType = "application/json",
     		  schema = @Schema(implementation = Item.class)) }),
       @ApiResponse(
@@ -67,8 +68,7 @@ public class ItemController {
       @ApiResponse(
     		  responseCode = "201",
     		  description = "Itens encontrado", 
-    		  content = { @Content(mediaType = "application/json", 
-    		  schema = @Schema(implementation = Item.class)) }),
+    		  content = { @Content( mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Item.class)))}),
       @ApiResponse(
     		  responseCode = "404",
     		  description = "Itens não encontrado", 
