@@ -63,6 +63,12 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<!-- Spring Boot HATEOAS: Facilita a construção de APIs RESTful com suporte a hypermedia -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
+
 		<!-- Spring Boot Starter Security: Fornece suporte para autenticação e autorização com Spring Security -->
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.boot</groupId>-->
