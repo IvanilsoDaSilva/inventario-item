@@ -15,8 +15,19 @@ import java.util.Map;
 public class ItemController {
     @Autowired
     ItemService itemService;
-
-    @PostMapping("/criar-um")
+    
+    @Operation(summary = "Cria um item")
+    @ApiResponses(value={ 
+      @ApiResponse(
+    		  responseCode = "201", description = "Item criado",
+    		  content = { @Content(mediaType = "application/json",
+    		  schema = @Schema(implementation = Item.class)) }),
+      @ApiResponse(
+    		  responseCode = "400",
+    		  description = "Informações inválidas",
+    		  content = @Content)
+    })
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Item create(
             @RequestBody Item body,
@@ -25,7 +36,23 @@ public class ItemController {
         return itemService.create(body);
     }
 
-    @PostMapping("/ler-um-por-nome")
+    @Operation(summary = "Localiza um item pelo seu nome")
+    @ApiResponses(value={ 
+      @ApiResponse(
+    		  responseCode = "201",
+    		  description = "Item encontrado",
+    		  content = { @Content(mediaType = "application/json",
+    		  schema = @Schema(implementation = Item.class)) }),
+      @ApiResponse(
+    		  responseCode = "400",
+    		  description = "Informações invalidas",
+    		  content = @Content),
+      @ApiResponse(
+    		  responseCode = "404",
+    		  description = "Item não encontrado",
+    		  content = @Content)
+    })
+    @PostMapping("/read-by-name/{name}")
     @ResponseStatus(HttpStatus.OK)
     public Item readItemByName(
             @RequestBody String body,
@@ -35,7 +62,19 @@ public class ItemController {
         return itemService.readByNome(body);
     }
 
-    @GetMapping("/ler-varios")
+    @Operation(summary = "Localiza todos itens")
+    @ApiResponses(value={ 
+      @ApiResponse(
+    		  responseCode = "201",
+    		  description = "Itens encontrado", 
+    		  content = { @Content(mediaType = "application/json", 
+    		  schema = @Schema(implementation = Item.class)) }),
+      @ApiResponse(
+    		  responseCode = "404",
+    		  description = "Itens não encontrado", 
+    		  content = @Content)
+      })
+    @GetMapping("/read-all")
     @ResponseStatus(HttpStatus.OK)
     public List<Item> readAll(
             @RequestHeader Map<String, String> headers
@@ -43,13 +82,37 @@ public class ItemController {
         return itemService.readAll();
     }
 
-    @PostMapping("/atualizar-um")
+    @Operation(summary = "Atualiza um item")
+    @ApiResponses(value={ 
+      @ApiResponse(
+    		  responseCode = "201",
+    		  description = "Itens atualizado", 
+    		  content = { @Content(mediaType = "application/json", 
+    		  schema = @Schema(implementation = Item.class)) }),
+      @ApiResponse(
+    		  responseCode = "400",
+    		  description = "Informações inválidas", 
+    		  content = @Content)
+      })
+    @PostMapping("/update")
     @ResponseStatus(HttpStatus.OK)
     public String update() {
         return null;
     }
 
-    @PostMapping("/deletar-um")
+    @Operation(summary = "Deleta um item pelo seu id")
+    @ApiResponses(value={ 
+      @ApiResponse(
+    		  responseCode = "204",
+    		  description = "Item deletado",
+    		  content = { @Content(mediaType = "application/json",
+    		  schema = @Schema(implementation = Item.class)) }),
+      @ApiResponse(
+    		  responseCode = "404",
+    		  description = "Item não encontrado",
+    		  content = @Content)
+    })
+    @PostMapping("/delete/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public String delete() {
         return null;
