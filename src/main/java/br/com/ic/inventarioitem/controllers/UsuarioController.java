@@ -63,9 +63,9 @@ public class UsuarioController {
     @Operation(summary = "Localiza todos os usuários")
     @ApiResponses(value={ 
       @ApiResponse(
-          responseCode = "200", description = "Usuários encontrados",
-          content = { @Content(mediaType = "application/json", 
-          schema = @Schema(implementation = Usuario.class)) }),
+          responseCode = "200",
+          description = "Usuários encontrados",
+          content = { @Content( mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Usuario.class)))}),
       @ApiResponse(
           responseCode = "404",
           description = "Nenhum usuário encontrado",
