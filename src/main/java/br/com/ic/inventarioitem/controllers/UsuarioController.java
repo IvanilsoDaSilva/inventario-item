@@ -16,7 +16,18 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    @PostMapping("/criar-um")
+    @Operation(summary = "Cria um usuário")
+    @ApiResponses(value={ 
+      @ApiResponse(
+          responseCode = "201", description = "Usuário criado",
+          content = { @Content(mediaType = "application/json", 
+          schema = @Schema(implementation = Usuario.class)) }),
+      @ApiResponse(
+          responseCode = "400",
+          description = "Informações inválidas",
+          content = @Content)
+    })
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario create(
             @RequestBody Usuario body,
@@ -25,34 +36,80 @@ public class UsuarioController {
         return usuarioService.create(body);
     }
 
-    @PostMapping("/ler-um-por-email")
+    @Operation(summary = "Localiza um usuário pelo seu email")
+    @ApiResponses(value={ 
+      @ApiResponse(
+          responseCode = "200", description = "Usuário encontrado",
+          content = { @Content(mediaType = "application/json", 
+          schema = @Schema(implementation = Usuario.class)) }),
+      @ApiResponse(
+          responseCode = "400",
+          description = "Informações inválidas",
+          content = @Content),
+      @ApiResponse(
+          responseCode = "404",
+          description = "Usuário não encontrado",
+          content = @Content)
+    })
+    @PostMapping("/read-by-email")
     @ResponseStatus(HttpStatus.OK)
     public Usuario readByEmail(
             @RequestBody String body,
             @RequestHeader Map<String, String> headers
     ) {
-
         return usuarioService.readByEmail(body);
     }
 
-    @GetMapping("/ler-varios")
+    @Operation(summary = "Localiza todos os usuários")
+    @ApiResponses(value={ 
+      @ApiResponse(
+          responseCode = "200", description = "Usuários encontrados",
+          content = { @Content(mediaType = "application/json", 
+          schema = @Schema(implementation = Usuario.class)) }),
+      @ApiResponse(
+          responseCode = "404",
+          description = "Nenhum usuário encontrado",
+          content = @Content)
+    })
+    @GetMapping("/read-all")
     @ResponseStatus(HttpStatus.OK)
     public List<Usuario> readAll(
             @RequestHeader Map<String, String> headers
     ) {
-
         return usuarioService.readAll();
     }
 
-//    @PostMapping("/atualizar-um")
-//    @ResponseStatus(HttpStatus.OK)
-//    public String update() {
-//        return null;
-//    }
+    @Operation(summary = "Atualiza um usuário")
+    @ApiResponses(value={ 
+      @ApiResponse(
+          responseCode = "200", description = "Usuário atualizado",
+          content = { @Content(mediaType = "application/json", 
+          schema = @Schema(implementation = Usuario.class)) }),
+      @ApiResponse(
+          responseCode = "400",
+          description = "Informações inválidas",
+          content = @Content)
+    })
+    @PostMapping("/update")
+    @ResponseStatus(HttpStatus.OK)
+    public String update() {
+        return null; // Implementar lógica de atualização
+    }
 
-//    @PostMapping("/deletar-um")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    public String delete() {
-//        return null;
-//    }
+    @Operation(summary = "Deleta um usuário")
+    @ApiResponses(value={ 
+      @ApiResponse(
+          responseCode = "204", description = "Usuário deletado",
+          content = { @Content(mediaType = "application/json", 
+          schema = @Schema(implementation = Usuario.class)) }),
+      @ApiResponse(
+          responseCode = "404",
+          description = "Usuário não encontrado",
+          content = @Content)
+    })
+    @PostMapping("/delete")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public String delete() {
+        return null; // Implementar lógica de exclusão
+    }
 }
