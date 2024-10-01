@@ -54,7 +54,7 @@ public class ItemController {
     })
     @PostMapping("/read-by-name/{name}")
     @ResponseStatus(HttpStatus.OK)
-    public Item readItemByName(
+    public Item readByName(
             @RequestBody String body,
             @RequestHeader Map<String, String> headers
     ) {
