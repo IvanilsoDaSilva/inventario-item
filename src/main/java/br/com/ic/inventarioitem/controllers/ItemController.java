@@ -2,6 +2,12 @@ package br.com.ic.inventarioitem.controllers;
 
 import br.com.ic.inventarioitem.entities.core.Item;
 import br.com.ic.inventarioitem.services.ItemService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -17,7 +23,7 @@ public class ItemController {
     ItemService itemService;
     
     @Operation(summary = "Cria um item")
-    @ApiResponses(value={ 
+    @ApiResponses(value={
       @ApiResponse(
     		  responseCode = "201",
               description = "Item criado",
@@ -38,7 +44,7 @@ public class ItemController {
     }
 
     @Operation(summary = "Localiza um item pelo seu nome")
-    @ApiResponses(value={ 
+    @ApiResponses(value={
       @ApiResponse(
     		  responseCode = "201",
     		  description = "Item encontrado",
@@ -64,7 +70,7 @@ public class ItemController {
     }
 
     @Operation(summary = "Localiza todos itens")
-    @ApiResponses(value={ 
+    @ApiResponses(value={
       @ApiResponse(
     		  responseCode = "201",
     		  description = "Itens encontrado", 
@@ -83,7 +89,7 @@ public class ItemController {
     }
 
     @Operation(summary = "Atualiza um item")
-    @ApiResponses(value={ 
+    @ApiResponses(value={
       @ApiResponse(
     		  responseCode = "201",
     		  description = "Itens atualizado", 
@@ -101,7 +107,7 @@ public class ItemController {
     }
 
     @Operation(summary = "Deleta um item pelo seu id")
-    @ApiResponses(value={ 
+    @ApiResponses(value={
       @ApiResponse(
     		  responseCode = "204",
     		  description = "Item deletado",

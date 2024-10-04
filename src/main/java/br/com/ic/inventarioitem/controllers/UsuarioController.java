@@ -3,6 +3,12 @@ package br.com.ic.inventarioitem.controllers;
 
 import br.com.ic.inventarioitem.entities.core.Usuario;
 import br.com.ic.inventarioitem.services.UsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -18,10 +24,10 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @Operation(summary = "Cria um usuário")
-    @ApiResponses(value={ 
+    @ApiResponses(value={
       @ApiResponse(
           responseCode = "201", description = "Usuário criado",
-          content = { @Content(mediaType = "application/json", 
+          content = { @Content(mediaType = "application/json",
           schema = @Schema(implementation = Usuario.class)) }),
       @ApiResponse(
           responseCode = "400",
