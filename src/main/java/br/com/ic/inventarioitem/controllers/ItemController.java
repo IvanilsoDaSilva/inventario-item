@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@Controller
+@RestController
 @RequestMapping("/item")
 public class ItemController {
     @Autowired
@@ -62,11 +62,10 @@ public class ItemController {
     @PostMapping("/read-by-name/{name}")
     @ResponseStatus(HttpStatus.OK)
     public Item readByName(
-            @RequestBody String body,
-            @RequestHeader Map<String, String> headers
-    ) {
-
-        return itemService.readByNome(body);
+            @PathVariable String name,
+            @RequestHeader Map<String, String> headers)
+    {
+        return itemService.readByNome(name);
     }
 
     @Operation(summary = "Localiza todos itens")
