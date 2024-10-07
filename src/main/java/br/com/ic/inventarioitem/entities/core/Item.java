@@ -33,7 +33,6 @@ public class Item extends PersistenciaBD {
     @Column(name = "descricao")
     private String descricao;
 
-    @Size(max = 255, message = "A categoria do item não pode possuir mais de 255 caracteres")
     @Column(name = "categoria", length = 255)
     private CategoriaItem categoria;
 

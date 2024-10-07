@@ -49,10 +49,10 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- Driver JDBC para conexão com o banco de dados MySQL. -->
+		<!-- H2 Database: Banco de dados em memória para desenvolvimento e testes -->
 		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -63,18 +63,19 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- Spring Boot Starter Security: Fornece suporte para autenticação e autorização com Spring Security -->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-security</artifactId>-->
-<!--		</dependency>-->
+		<!-- Spring Boot HATEOAS: Facilita a construção de APIs RESTful com suporte a hypermedia -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-hateoas</artifactId>
+		</dependency>
 
-		<!-- Spring Security Test: Fornece suporte para testes de segurança com Spring Security -->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.security</groupId>-->
-<!--			<artifactId>spring-securitysecurity-test</artifactId>-->
-<!--			<scope>test</scope>-->
-<!--		</dependency>-->
+		<!-- Springdoc OpenAPI UI: Facilita a geração de documentação interativa para APIs RESTful com suporte ao Swagger UI -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+
 
 		<!-- Jackson Databind: Biblioteca para conversão entre objetos Java e JSON -->
 		<dependency>
