@@ -10,17 +10,16 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/item")
+@RequestMapping("api/v1/item")
 public class ItemController {
     @Autowired
-    ItemService itemService;
+    ItemService service;
     
     @Operation(summary = "Cria um item")
     @ApiResponses(value={
@@ -40,7 +39,7 @@ public class ItemController {
             @RequestBody Item body,
             @RequestHeader Map<String, String> headers
     ) {
-        return itemService.create(body);
+        return service.create(body);
     }
 
     @Operation(summary = "Localiza um item pelo seu nome")
@@ -65,7 +64,7 @@ public class ItemController {
             @PathVariable String name,
             @RequestHeader Map<String, String> headers)
     {
-        return itemService.readByNome(name);
+        return service.readByNome(name);
     }
 
     @Operation(summary = "Localiza todos itens")
@@ -84,7 +83,7 @@ public class ItemController {
     public List<Item> readAll(
             @RequestHeader Map<String, String> headers
     ) {
-        return itemService.readAll();
+        return service.readAll();
     }
 
     @Operation(summary = "Atualiza um item")

@@ -1,6 +1,7 @@
 package br.com.ic.inventarioitem.entities.inheritance;
 
 import br.com.ic.inventarioitem.entities.base.PersistenciaBD;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
