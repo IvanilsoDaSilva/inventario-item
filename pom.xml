@@ -71,10 +71,10 @@
 
 		<!-- Springdoc OpenAPI UI: Facilita a geração de documentação interativa para APIs RESTful com suporte ao Swagger UI -->
 		<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-ui</artifactId>
-			<version>1.7.0</version>
-		</dependency>
+          <groupId>org.springdoc</groupId>
+          <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+          <version>2.5.0</version>
+       </dependency>
 
 
 		<!-- Jackson Databind: Biblioteca para conversão entre objetos Java e JSON -->
