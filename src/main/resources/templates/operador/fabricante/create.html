@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Item | Operador</title>
+</head>
+	<body>
+		<h1>Criar de Fabricantes</h1>
+		<form action="api/v1/fabricante/create" th:action="@{/api/v1/fabricante/create}" method="post" th:object="${fabricante}">
+			<label for="razao_social">Razão social:</label>
+			<input type="text" id="razao_social" th:field="*{razaoSocial}" required />
+			<button type="submit">Adicionar Fabricante</button>
+		</form>
+	</body>
+</html>
