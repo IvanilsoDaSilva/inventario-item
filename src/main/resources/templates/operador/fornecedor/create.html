@@ -6,9 +6,9 @@
     <title>Inventario de Item | Operador</title>
 </head>
 	<body>
-		<h1>Criar fabricante</h1>
-		<a href="/operador/fabricantes">Voltar</a>
-		<form th:action="@{/operador/fabricantes/novo}" method="post" th:object="${fabricante}">
+		<h1>Criar fornecedor</h1>
+		<a href="/operador/fornecedores">Voltar</a>
+		<form th:action="@{/operador/fornecedores/novo}" method="post" th:object="${fornecedor}">
 			<label for="razao_social">Razão social:</label>
 			<input type="text" id="razao_social" th:field="*{razaoSocial}" />
 
@@ -24,7 +24,7 @@
 			<label for="site">Site:</label>
 			<input type="text" id="site" th:field="*{site}" />
 
-			<button type="submit">Adicionar fabricante</button>
+			<button type="submit">Adicionar fornecedor</button>
 
 			<p th:if="${#fields.hasErrors('razaoSocial')}" th:errors="*{razaoSocial}"></p>
 			<p th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}"></p>

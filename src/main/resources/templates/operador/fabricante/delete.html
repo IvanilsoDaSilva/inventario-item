@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Item | Operador</title>
+</head>
+	<body>
+		<h1>Deletar fabricante</h1>
+		<a href="/operador/fabricantes">Voltar</a>
+		<form th:action="@{/operador/fabricantes/deletar/{id}(id=${fabricante.id})}" method="post" th:object="${fabricante}">
+
+			<p>Razao social:</p><p th:text="${fabricante.razaoSocial}"></p>
+			<p>CNPJ:</p><p th:text="${fabricante.cnpj}"></p>
+
+			<button type="submit">Deletar fabricante</button>
+		</form>
+	</body>
+</html>

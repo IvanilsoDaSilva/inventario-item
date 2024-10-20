@@ -1,14 +1,13 @@
 package br.com.ic.inventarioitem.services;
 
 import br.com.ic.inventarioitem.entities.core.Item;
-import br.com.ic.inventarioitem.entities.core.Item;
-import br.com.ic.inventarioitem.repositories.ItemRepository;
 import br.com.ic.inventarioitem.repositories.ItemRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemService {
@@ -21,6 +20,10 @@ public class ItemService {
 
     public Item readByNome(String nome){
         return repository.findByNome(nome);
+    }
+
+    public Optional<Item> readById(String id){
+        return repository.findById(id);
     }
 
     public List<Item> readAll(){

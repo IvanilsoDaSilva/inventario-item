@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Item | Operador</title>
+</head>
+	<body>
+		<h1>Lista de itens</h1>
+		<a href="/operador">Voltar</a>
+		<a href="/operador/itens/novo">Criar item</a>
+		<table>
+			<thead>
+				<tr>
+					<th>Codigo</th>
+					<th>Nome</th>
+					<th>Categoria</th>
+					<th>Editar</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${itens}">
+					<td th:text="${item.codigo}"></td>
+					<td th:text="${item.nome}"></td>
+					<td th:text="${item.categoria}"></td>
+					<td><a th:href="@{itens/atualizar/{id}(id=${item.id})}">Editar</a></td>
+					<td><a th:href="@{itens/deletar/{id}(id=${item.id})}">Deletar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
