@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Item | Operador</title>
+</head>
+	<body>
+		<h1>Criar fabricante</h1>
+		<a href="/operador/fabricantes">Voltar</a>
+		<form th:action="@{/operador/fabricantes/novo}" method="post" th:object="${fabricante}">
+			<label for="razao_social">Razão social:</label>
+			<input type="text" id="razao_social" th:field="*{razaoSocial}" />
+
+			<label for="cnpj">CNPJ:</label>
+			<input type="text" id="cnpj" th:field="*{cnpj}" />
+
+			<label for="email">E-Mail:</label>
+			<input type="email" id="email" th:field="*{email}" />
+
+			<label for="telefone">Telefone:</label>
+			<input type="text" id="telefone" th:field="*{telefone}" />
+
+			<label for="site">Site:</label>
+			<input type="text" id="site" th:field="*{site}" />
+
+			<button type="submit">Adicionar fabricante</button>
+
+			<p th:if="${#fields.hasErrors('razaoSocial')}" th:errors="*{razaoSocial}"></p>
+			<p th:if="${#fields.hasErrors('cnpj')}" th:errors="*{cnpj}"></p>
+			<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+			<p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></p>
+			<p th:if="${#fields.hasErrors('site')}" th:errors="*{site}"></p>
+		</form>
+	</body>
+</html>

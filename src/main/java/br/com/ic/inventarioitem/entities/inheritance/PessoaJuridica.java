@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.util.List;
@@ -28,14 +29,11 @@ public abstract class PessoaJuridica extends PersistenciaBD {
     @Column(name = "razao_social", length = 255)
     private String razaoSocial;
 
-    @CNPJ
-    @Column(name = "cnpj", length = 18, unique = true)
+//    @CNPJ
+    @Column(name = "cnpj", length = 20, unique = true)
     private String cnpj;
 
-    @Pattern(
-            regexp = "^(\\(?\\d{2}\\)?\\s?)?(\\d{5}-\\d{4}|\\d{4}-\\d{4}|\\d{8,9})$",
-            message = "O número de telefone celular está inválido"
-    )
+    @Size(max = 19, message = "O telefone não pode possuir mais de 19 caracteres")
     @Column(name = "telefone", length = 19)
     private String telefone;
 
@@ -45,10 +43,6 @@ public abstract class PessoaJuridica extends PersistenciaBD {
     @Column(name = "email", length = 255, unique = true)
     private String email;
 
-    @Pattern(
-            regexp = "^(https?:\\/\\/)?([a-zA-Z0-9.-]+)(:\\d+)?(\\/[^\\s]*)?$\n",
-            message = "O site está inválido"
-    )
     @Size(max = 255, message = "O site não pode possuir mais de 255 caracteres")
     @Column(name = "site", length = 255, unique = true)
     private String site;

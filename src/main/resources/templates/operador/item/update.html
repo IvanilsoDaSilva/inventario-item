@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Item | Operador</title>
+</head>
+	<body>
+		<h1>Atualizar item</h1>
+		<a href="/operador/itens">Voltar</a>
+		<form th:action="@{/operador/itens/atualizar}" method="post" th:object="${item}">
+			<input type="hidden" th:field="*{id}"/>
+
+			<label for="codigo">Codigo:</label>
+			<input type="text" id="codigo" th:field="*{codigo}" />
+
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" th:field="*{nome}" />
+
+			<label for="descricao">Descrição:</label>
+			<textarea id="descricao" th:field="*{descricao}" rows="5" cols="40"></textarea>
+
+			<label for="categoria">Categoria:</label>
+			<select id="categoria" th:field="*{categoria}">
+				<option value="" selected>Selecione uma categoria</option>
+				<option th:each="categoria : ${categorias}" th:value="${categoria}" th:text="${categoria}"></option>
+			</select>
+
+			<label for="proprietario">Proprietario:</label>
+			<select id="proprietario" th:field="*{proprietario}">
+				<option value="" selected>Selecione uma categoria</option>
+				<option th:each="proprietario : ${proprietarios}" th:value="${proprietario.id}" th:text="${proprietario.nome} + ' : ' + ${proprietario.cpf}"></option>
+			</select>
+
+			<label for="fabricante">Fabricante:</label>
+			<select id="fabricante" th:field="*{fabricante}">
+				<option value="" selected>Selecione uma categoria</option>
+				<option th:each="fabricante : ${fabricantes}" th:value="${fabricante.id}" th:text="${fabricante.razaoSocial}"></option>
+			</select>
+
+			<label for="fornecedor">Fornecedor:</label>
+			<select id="fornecedor" th:field="*{fornecedor}">
+				<option value="" selected>Selecione uma categoria</option>
+				<option th:each="fornecedor : ${fornecedores}" th:value="${fornecedor.id}" th:text="${fornecedor.razaoSocial}"></option>
+			</select>
+
+			<label for="vendedor">Vendedor:</label>
+			<select id="vendedor" th:field="*{vendedor}">
+				<option value="" selected>Selecione uma categoria</option>
+				<option th:each="vendedor : ${vendedores}" th:value="${vendedor.id}" th:text="${vendedor.razaoSocial}"></option>
+			</select>
+
+			<button type="submit">Editar item</button>
+
+			<p th:if="${#fields.hasErrors('codigo')}" th:errors="*{codigo}"></p>
+			<p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+			<p th:if="${#fields.hasErrors('descricao')}" th:errors="*{descricao}"></p>
+			<p th:if="${#fields.hasErrors('categoria')}" th:errors="*{categoria}"></p>
+			<p th:if="${#fields.hasErrors('proprietario')}" th:errors="*{proprietario}"></p>
+			<p th:if="${#fields.hasErrors('fornecedor')}" th:errors="*{fornecedor}"></p>
+			<p th:if="${#fields.hasErrors('fabricante')}" th:errors="*{fabricante}"></p>
+			<p th:if="${#fields.hasErrors('vendedor')}" th:errors="*{vendedor}"></p>
+		</form>
+	</body>
+</html>

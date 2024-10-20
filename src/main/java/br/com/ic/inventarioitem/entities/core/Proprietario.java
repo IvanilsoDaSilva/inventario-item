@@ -21,10 +21,6 @@ import java.util.List;
 @SuperBuilder
 @NoArgsConstructor
 public class Proprietario extends PessoaFisica {
-    @Pattern(
-            regexp = "^(\\(?\\d{2}\\)?\\s?)?(\\d{5}-\\d{4}|\\d{4}-\\d{4}|\\d{8,9})$",
-            message = "O número de telefone celular está inválido"
-    )
     @Column(name = "telefone", length = 19)
     private String telefone;
 

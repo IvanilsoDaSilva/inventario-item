@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FabricanteService {
@@ -19,6 +20,10 @@ public class FabricanteService {
 
     public Fabricante readByRazaoSocial(String razaoSocial){
         return repository.findByRazaoSocial(razaoSocial);
+    }
+
+    public Optional<Fabricante> readById(String id) {
+        return repository.findById(id);
     }
 
     public List<Fabricante> readAll(){

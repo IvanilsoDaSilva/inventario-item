@@ -26,7 +26,7 @@ public abstract class PessoaFisica extends PersistenciaBD {
     @Column(name = "nome", length = 255)
     private String nome;
 
-    @CPF
+//    @CPF
     @Column(name = "cpf", length = 14, unique = true)
     private String cpf;
 

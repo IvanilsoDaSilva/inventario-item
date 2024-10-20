@@ -12,4 +12,16 @@ public class ViewMainController {
     public String index() {
         return "index";
     }
+
+    @GetMapping("/administrador")
+    @ResponseStatus(HttpStatus.OK)
+    public String administradorDashboard() {
+        return "administrador/dashboard";
+    }
+
+    @GetMapping("/operador")
+    @ResponseStatus(HttpStatus.OK)
+    public String operadorDashboard() {
+        return "operador/dashboard";
+    }
 }

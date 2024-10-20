@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Item | Operador</title>
+</head>
+	<body>
+		<h1>Lista de fabricantes</h1>
+		<a href="/operador">Voltar</a>
+		<a href="/operador/fabricantes/novo">Criar fabricante</a>
+		<table>
+			<thead>
+				<tr>
+					<th>Razão social</th>
+					<th>CNPJ</th>
+					<th>Editar</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="fabricante : ${fabricantes}">
+					<td th:text="${fabricante.razaoSocial}"></td>
+					<td th:text="${fabricante.cnpj}"></td>
+					<td><a th:href="@{fabricantes/atualizar/{id}(id=${fabricante.id})}">Editar</a></td>
+					<td><a th:href="@{fabricantes/deletar/{id}(id=${fabricante.id})}">Deletar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

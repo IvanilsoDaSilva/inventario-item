@@ -1,4 +1,4 @@
-package br.com.ic.inventarioitem.controllers;
+package br.com.ic.inventarioitem.controllers.apirest;
 
 import br.com.ic.inventarioitem.entities.core.Fabricante;
 import br.com.ic.inventarioitem.entities.core.Usuario;

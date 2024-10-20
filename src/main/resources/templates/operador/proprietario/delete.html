@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Item | Operador</title>
+</head>
+	<body>
+		<h1>Deletar proprietario</h1>
+		<a href="/operador/proprietarios">Voltar</a>
+		<form th:action="@{/operador/proprietarios/deletar/{id}(id=${proprietario.id})}" method="post" th:object="${proprietario}">
+
+			<p>Nome:</p><p th:text="${proprietario.nome}"></p>
+			<p>CPF:</p><p th:text="${proprietario.cpf}"></p>
+
+			<button type="submit">Deletar proprietario</button>
+		</form>
+	</body>
+</html>
