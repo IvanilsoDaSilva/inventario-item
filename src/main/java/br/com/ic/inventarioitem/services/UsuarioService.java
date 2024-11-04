@@ -2,8 +2,6 @@ package br.com.ic.inventarioitem.services;
 
 import br.com.ic.inventarioitem.entities.core.Usuario;
 import br.com.ic.inventarioitem.repositories.UsuarioRepository;
-
-import org.modelmapper.internal.bytebuddy.asm.Advice.Return;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +17,12 @@ public class UsuarioService {
         return repository.save(usuario);
     }
 
-    public Optional<Usuario> readByEmail(String email){
-        return repository.findByEmail(email);
+    public Optional<Usuario> readByCpf(String cpf){
+        return repository.findByCpf(cpf);
+    }
+
+    public Optional<Usuario> readById(String id) {
+        return repository.findById(id);
     }
 
     public List<Usuario> readAll(){

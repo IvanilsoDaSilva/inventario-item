@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario de Item | Operador</title>
+</head>
+	<body>
+		<h1>Lista de proprietarios</h1>
+		<a href="/operador">Voltar</a>
+		<a href="/operador/proprietarios/novo">Criar proprietario</a>
+		<table>
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>CPF</th>
+					<th>Editar</th>
+					<th>Deletar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="proprietario : ${proprietarios}">
+					<td th:text="${proprietario.nome}"></td>
+					<td th:text="${proprietario.cpf}"></td>
+					<td><a th:href="@{proprietarios/atualizar/{id}(id=${proprietario.id})}">Editar</a></td>
+					<td><a th:href="@{proprietarios/deletar/{id}(id=${proprietario.id})}">Deletar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

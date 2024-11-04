@@ -1,13 +1,5 @@
 package br.com.ic.inventarioitem.dto;
 
-import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.server.RepresentationModelAssembler;
-
-import br.com.ic.inventarioitem.controllers.UsuarioController;
-import br.com.ic.inventarioitem.entities.core.Usuario;
-
-import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
-
 //public class UsuarioModelAssembler implements RepresentationModelAssembler<Usuario, EntityModel<Usuario>> {
 //
 //    @Override

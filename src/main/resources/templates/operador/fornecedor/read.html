@@ -6,9 +6,9 @@
     <title>Inventario de Item | Operador</title>
 </head>
 	<body>
-		<h1>Lista de fabricantes</h1>
+		<h1>Lista de fornecedores</h1>
 		<a href="/operador">Voltar</a>
-		<a href="/operador/fabricantes/novo">Criar fabricante</a>
+		<a href="/operador/fornecedores/novo">Criar fornecedor</a>
 		<table>
 			<thead>
 				<tr>
@@ -19,11 +19,11 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="fabricante : ${fabricantes}">
-					<td th:text="${fabricante.razaoSocial}"></td>
-					<td th:text="${fabricante.cnpj}"></td>
-					<td><a th:href="@{fabricantes/atualizar/{id}(id=${fabricante.id})}">Editar</a></td>
-					<td><a th:href="@{fabricantes/deletar/{id}(id=${fabricante.id})}">Deletar</a></td>
+				<tr th:each="fornecedor : ${fornecedores}">
+					<td th:text="${fornecedor.razaoSocial}"></td>
+					<td th:text="${fornecedor.cnpj}"></td>
+					<td><a th:href="@{fornecedores/atualizar/{id}(id=${fornecedor.id})}">Editar</a></td>
+					<td><a th:href="@{fornecedores/deletar/{id}(id=${fornecedor.id})}">Deletar</a></td>
 				</tr>
 			</tbody>
 		</table>
